@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book List</title>
+  </head>
+  <body>
+    <h1>Book List</h1>
+
+    <!-- Search Form -->
+    <form method="GET">
+      {% csrf_token %}
+      <input
+        type="search"
+        placeholder="Enter a book"
+        name="q"
+        aria-label="Search"
+      />
+      <button type="submit">Search</button>
+    </form>
+
+    <!---->
+
+    <hr />
+    <h1>List of all books</h1>
+    {% for book in books %}
+    <p>{{ book.name }}</p>
+    <p>{{ book.publication_date }}</p>
+    <p>{{ book.author }}</p>
+    <br />
+    {%endfor%}
+  </body>
+</html>
